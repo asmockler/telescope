@@ -6,7 +6,7 @@ module Telescope
 
     def initialize
       Mongo::Logger.logger.level = ::Logger::FATAL
-      self.client = Mongo::Client.new(ENV['MONGODB_URI'])
+      self.client = Mongo::Client.new(Telescope::CONFIG[:mongo_uri])
     end
 
     def status
