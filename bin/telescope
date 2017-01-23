@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+require 'dotenv'
+Dotenv.load
+
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "..", "lib"))
+require 'telescope'
+
+# You can force a clean run by passing --clean
+# This will delete your last status and force
+# a testing environment to prevent using too
+# much of the 100 message quota.
+if ARGV.include? '--clean'
+  puts "🔨  Running with --clean flag"
+  ENV['TELESCOPE_ENV'] = 'test'
+  Telescope::DB.destroy_all_statuses
+  puts "\n\n"
+end
+
+Telescope.run
