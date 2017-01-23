@@ -1,0 +1,28 @@
+{
+  "name": "Telescope",
+  "description": "Get text messages whenever there is a new spectacles location",
+  "keywords": ["snapchat", "spectacles"],
+  "repository": "https://github.com/asmockler/telescope",
+  "logo": "https://github.com/asmockler/telescope/raw/master/icon.png",
+  "env": {
+    "PHONE": {
+      "description": "Your phone number, for receiving alerts",
+      "value": "YOUR PHONE NUMBER"
+    }
+  },
+  "image": "heroku/ruby",
+  "addons": [
+    {
+      "plan": "mongolab:sandbox",
+      "as": "MONGO"
+    },
+    {
+      "plan": "scheduler:standard",
+      "as": "SCHEDULER"
+    },
+    {
+      "plan": "till:test",
+      "as": "TILL"
+    }
+  ]
+}

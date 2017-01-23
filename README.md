@@ -4,11 +4,9 @@
 
 ## Deploy to Heroku
 
-You will need the following keys in your config vars for Telescope to run:
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-* `LAT`
-* `LONG`
-* `PHONE`
+Click the button above and Heroku will help you deploy the app. Once deployed, open the schedule add-on and add `bin/telescope` at the frequency you want (I have mine set to run hourly).
 
 ## TODO
 
