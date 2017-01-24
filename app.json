@@ -11,6 +11,9 @@
     }
   },
   "image": "heroku/ruby",
+  "scripts": {
+    "postdeploy": "bin/telescope"
+  },
   "addons": [
     {
       "plan": "mongolab:sandbox",
