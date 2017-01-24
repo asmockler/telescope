@@ -7,7 +7,7 @@ module Telescope
       def parse_location(location)
         place = Geocoder.search([location["lat"], location["long"]])[0]
 
-        if !place.city.nil?
+        unless place.city.nil?
           location["name"] = "#{place.city}, #{place.state_code}"
         else
           location = nil
