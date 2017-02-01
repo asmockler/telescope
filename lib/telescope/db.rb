@@ -48,7 +48,7 @@ module Telescope
       record = self.location
       record.update(new_location)
       update = self.client[:location].update_one({_id: record[:_id]}, record)
-      
+
       if update.modified_count == 1
         @location = record
       else
@@ -56,16 +56,6 @@ module Telescope
         @location = nil
       end
       @location
-    end
-
-    class << self
-      def destroy_all_statuses
-        puts "\t🔥  Destroying all statuses"
-        Mongo::Logger.logger.level = ::Logger::FATAL
-        client = Mongo::Client.new(ENV['MONGODB_URI'])
-        client[:status].find.delete_many
-        puts "\t💦  Database is clean"
-      end
     end
   end
 end

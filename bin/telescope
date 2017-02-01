@@ -12,7 +12,13 @@ require 'telescope'
 if ARGV.include? '--clean'
   puts "🔨  Running with --clean flag"
   ENV['TELESCOPE_ENV'] = 'test'
-  Telescope::DB.destroy_all_statuses
+  database_wiped = system("bin/utils/wipe_db")
+
+  unless database_wiped
+    puts "💥  Something went wrong. Exiting..."
+    abort
+  end
+
   puts "\n\n"
 end
 

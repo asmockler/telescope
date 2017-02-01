@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+require 'dotenv'
+require 'mongo'
+Dotenv.load
+
+puts "\t🔥  Wiping DB"
+uri = ENV['MONGODB_URI'] || ENV['MONGO_URI']
+client = Mongo::Client.new(uri)
+client[:status].find.delete_many
+client[:location].find.delete_many
+puts "\t💦  Database is clean"
