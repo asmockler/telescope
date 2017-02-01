@@ -23,7 +23,39 @@ module Telescope
     def update_status(new_status)
       record = self.status
       record.update(new_status)
-      self.client[:status].update_one({_id: record[:_id]}, record)
+      update = self.client[:status].update_one({_id: record[:_id]}, record)
+
+      if update.modified_count == 1
+        @status = record
+      else
+        puts "Status update failed. Status: #{record}"
+        @status = nil
+      end
+      @status
+    end
+
+    def location
+      return @location if @location
+
+      if self.client[:location].count == 0
+        self.client[:location].insert_one({lat: 0, long: 0})
+      end
+
+      @location = self.client[:location].find.first
+    end
+
+    def update_location(new_location)
+      record = self.location
+      record.update(new_location)
+      update = self.client[:location].update_one({_id: record[:_id]}, record)
+      
+      if update.modified_count == 1
+        @location = record
+      else
+        puts "Location update failed. Location: #{record}"
+        @location = nil
+      end
+      @location
     end
 
     class << self

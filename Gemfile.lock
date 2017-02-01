@@ -20,7 +20,15 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    rack (1.6.5)
+    rack-protection (1.5.3)
+      rack
+    sinatra (1.4.7)
+      rack (~> 1.5)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
     slop (3.6.0)
+    tilt (2.0.5)
 
 PLATFORMS
   ruby
@@ -32,6 +40,7 @@ DEPENDENCIES
   mongo
   nokogiri
   pry
+  sinatra
 
 BUNDLED WITH
    1.14.0.pre.1

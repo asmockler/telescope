@@ -3,6 +3,7 @@ require 'telescope/configuration'
 require 'telescope/db'
 require 'telescope/notifier'
 require 'telescope/status'
+require 'telescope/location'
 
 module Telescope
   SPECTACLES_URL = 'https://www.spectacles.com/locations'.freeze
